@@ -33,12 +33,34 @@ To know what region in the image is significant in the model's decision making, 
 
 ---
 
-## 📊 Results
+### 📊 Results
 - **DenseNet161** achieved **93.75% validation accuracy**
 - **ResNet50** produced strong classification performance with interpretable CAMs
-- Demonstrated robust ability to detect pneumonia patterns in X-rays
 
 ---
 
+## Evaluation Summary of ResNet50
+The ResNet50 model was evaluated using a test set of 624 chest X-ray images to assess the model's ability as a medical screening tool. The model achieved an **Accuracy of 83.97%** and **AUC of 0.925**.
+One important thing to note is that the model has a perfect sensitivity (Recall = 1.0) for the pneumonia class by successfully classifying all pneumonia cases (390/390). However, this high sensitivity comes with a specificity trade-off, resulting in a number of False Positives (Normal images predicted as Pneumonia).
 
+### Confusion Matrix Analysis
+- True Positives (390): The model correctly classified every case of pneumonia in the test set.
+- False Negatives (0): There were zero missed diagnoses. In a medical context, this is the most valuable metric, as missing a sick patient can have fatal consequences.
+- False Positives (100): The model incorrectly classified 100 healthy patients as having pneumonia due to its high sensitivity.
+- True Negatives (134): The model correctly classified 134 cases of healthy people.
+  
+### Quantitative Performance Metrics
+| Metric    | Normal (0)   | Pneumonia (1)   | Interpretation                                                                 |
+|:----------|:----------------|:------------------|:-------------------------------------------------------------------------------|
+| Precision | 1.00            | 0.80              | When the model predicts "Normal," it is 100% correct. When it predicts "Pneumonia," it is 80% correct. |
+| Recall    | 0.57            | 1.00              | The model found all pneumonia cases, but only successfully identified 57% of the normal cases. |
+| F1-Score  | 0.73            | 0.89              | The model has a good balance between precision and recall for healthy and unhealthy cases. |
 
+### ROC Curve Analysis
+AUC Score of 0.925 means the model is good at disguising between normal and pneumonia chest X-rays.
+
+### Clinical Strengths
+Clinically, this model is an excellent diagnostic tool. It can confidently tell a doctor who does not have pneumonia, ensuring no sick patient is sent home by mistake.
+
+### Clinical Weakness
+The model weakness is overdiagnosis, flagging ~43% of healthy patients as sick. This creates a higher workload for radiologists to verify the results.
