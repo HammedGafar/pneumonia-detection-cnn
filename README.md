@@ -65,7 +65,7 @@ One important thing to note is that the model has a perfect sensitivity (Recall 
 
 <p align="center"> <img src="Images/roc_curve_ResNet50.png" width="350"> </p>
 
-AUC Score of 0.925 means the model is good at disguising between normal and pneumonia chest X-rays.
+AUC Score of 0.925 means the model is good at distinguising between normal and pneumonia chest X-rays.
 
 ### Clinical Strengths
 Clinically, this model is an excellent diagnostic tool. It can confidently tell a doctor who does not have pneumonia, ensuring no sick patient is sent home by mistake.
