@@ -64,3 +64,192 @@ Clinically, this model is an excellent diagnostic tool. It can confidently tell 
 
 ### Clinical Weakness
 The model weakness is overdiagnosis, flagging ~43% of healthy patients as sick. This creates a higher workload for radiologists to verify the results.
+
+```python
+
+import torch
+import matplotlib.pyplot as plt
+from resnet_model import ResNet50
+
+```
+
+
+
+
+```python
+resnet = ResNet50()
+
+resnet.print_result(
+    model_path='best_model_full_ResNet50.pt', 
+    image_folder_path='chest_xray1' 
+)
+```
+
+    /home/ubuntu/.venv/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+      warnings.warn(
+    /home/ubuntu/.venv/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+      warnings.warn(msg)
+    
+
+    *****************************
+    (2, 2048)
+    *****************************
+    Image index 0: Actual NORMAL, Predicted NORMAL
+    
+
+
+    
+![png](Images/output_2_2.png)
+    
+
+
+
+    
+![png](Images/output_2_3.png)
+    
+
+
+    *****************************
+    (2, 2048)
+    *****************************
+    Image index 1: Actual NORMAL, Predicted PNEUMONIA
+    
+
+
+    
+![png](Images/output_2_5.png)
+    
+
+
+
+    
+![png](Images/output_2_6.png)
+    
+
+
+    *****************************
+    (2, 2048)
+    *****************************
+    Image index 2: Actual NORMAL, Predicted NORMAL
+    
+
+
+    
+![png](Images/output_2_8.png)
+    
+
+
+
+    
+![png](Images/output_2_9.png)
+    
+
+
+    *****************************
+    (2, 2048)
+    *****************************
+    Image index 3: Actual NORMAL, Predicted PNEUMONIA
+    
+
+
+    
+![png](Images/output_2_11.png)
+    
+
+
+
+    
+![png](Images/output_2_12.png)
+    
+
+
+    *****************************
+    (2, 2048)
+    *****************************
+    Image index 4: Actual PNEUMONIA, Predicted PNEUMONIA
+    
+
+
+    
+![png](Images/output_2_14.png)
+    
+
+
+
+    
+![png](Images/output_2_15.png)
+    
+
+
+    *****************************
+    (2, 2048)
+    *****************************
+    Image index 5: Actual PNEUMONIA, Predicted PNEUMONIA
+    
+
+
+    
+![png](Images/output_2_17.png)
+    
+
+
+
+    
+![png](Images/output_2_18.png)
+    
+
+
+    *****************************
+    (2, 2048)
+    *****************************
+    Image index 6: Actual PNEUMONIA, Predicted PNEUMONIA
+    
+
+
+    
+![png](Images/output_2_20.png)
+    
+
+
+
+    
+![png](Images/output_2_21.png)
+    
+
+
+    *****************************
+    (2, 2048)
+    *****************************
+    Image index 7: Actual PNEUMONIA, Predicted PNEUMONIA
+    
+
+
+    
+![png](Images/output_2_23.png)
+    
+
+
+
+    
+![png](Images/output_2_24.png)
+    
+
+
+    *****************************
+    (2, 2048)
+    *****************************
+    Image index 8: Actual PNEUMONIA, Predicted PNEUMONIA
+    
+
+
+    
+![png](Images/output_2_26.png)
+    
+
+
+
+    
+![png](Images/output_2_27.png)
+    
+
+
