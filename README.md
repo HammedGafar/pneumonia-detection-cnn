@@ -44,6 +44,11 @@ The ResNet50 model was evaluated using a test set of 624 chest X-ray images to a
 One important thing to note is that the model has a perfect sensitivity (Recall = 1.0) for the pneumonia class by successfully classifying all pneumonia cases (390/390). However, this high sensitivity comes with a specificity trade-off, resulting in a number of False Positives (Normal images predicted as Pneumonia).
 
 ### Confusion Matrix Analysis
+
+    
+<p align="center"> <img src="Images/confusion_matrix_ResNet50.png" width="350"> </p>
+    
+
 - True Positives (390): The model correctly classified every case of pneumonia in the test set.
 - False Negatives (0): There were zero missed diagnoses. In a medical context, this is the most valuable metric, as missing a sick patient can have fatal consequences.
 - False Positives (100): The model incorrectly classified 100 healthy patients as having pneumonia due to its high sensitivity.
@@ -57,6 +62,9 @@ One important thing to note is that the model has a perfect sensitivity (Recall 
 | F1-Score  | 0.73            | 0.89              | The model has a good balance between precision and recall for healthy and unhealthy cases. |
 
 ### ROC Curve Analysis
+
+<p align="center"> <img src="Images/roc_curve_ResNet50.png" width="350"> </p>
+
 AUC Score of 0.925 means the model is good at disguising between normal and pneumonia chest X-rays.
 
 ### Clinical Strengths
